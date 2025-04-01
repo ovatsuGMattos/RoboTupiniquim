@@ -1,6 +1,6 @@
 ﻿namespace RoboTupiniquim.ConsoleApp
 {
-    public static class RoboUm
+    public static class RoboDois
     {
         public static int posicaoX;
         public static int posicaoY;
@@ -44,7 +44,8 @@
         public static string ObterLocalizacao()
         {
             return $"{posicaoX} {posicaoY} {direcao}";
-
         }
+
+
     }
 }
