@@ -24,7 +24,7 @@ O programa inicializa dois robôs com posições e direções iniciais. Cada rob
 
 - E (Esquerda): Rotaciona 90° para a esquerda.
 
--D (Direita): Rotaciona 90° para a direita.
+- D (Direita): Rotaciona 90° para a direita.
 
 - M (Mover): Avança uma posição na direção atual.
 
