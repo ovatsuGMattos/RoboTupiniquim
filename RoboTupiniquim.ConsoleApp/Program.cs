@@ -20,45 +20,13 @@
             {
                 char instrucaoAtual = instrucoes[i];
 
-                //E = vira pra esquerda
                 if (instrucaoAtual == 'E')
-                {
-                    if (direcaoRoboUm == 'N')
-                        direcaoRoboUm = 'O';
-                    else if (direcaoRoboUm == 'O')
-                        direcaoRoboUm = 'S';
-                    else if (direcaoRoboUm == 'S')
-                        direcaoRoboUm = 'L';
-                    else if (direcaoRoboUm == 'L')
-                        direcaoRoboUm = 'N';
-                }
-                //D= vira pra direita
+                    direcaoRoboUm = virarEsquerdaRoboUm(direcaoRoboUm);
                 else if (instrucaoAtual == 'D')
-                {
-                    if (direcaoRoboUm == 'N')
-                        direcaoRoboUm = 'L';
-                    else if (direcaoRoboUm == 'L')
-                        direcaoRoboUm = 'S';
-                    else if (direcaoRoboUm == 'S')
-                        direcaoRoboUm = 'O';
-                    else if (direcaoRoboUm == 'O')
-                        direcaoRoboUm = 'N';
-                }
-                //M= movimenta para frente
+                    direcaoRoboUm = virarDireitaRoboUm(direcaoRoboUm);
+
                 else if (instrucaoAtual == 'M')
-                {
-                    if (direcaoRoboUm == 'N')
-                        posicaoYRoboUm++;
-
-                    else if (direcaoRoboUm == 'S')
-                        posicaoYRoboUm--;
-
-                    else if (direcaoRoboUm == 'O')
-                        posicaoXRoboUm--;
-
-                    else if (direcaoRoboUm == 'L')
-                        posicaoXRoboUm++;
-                }
+                    MoverRoboUm(ref posicaoXRoboUm, ref posicaoYRoboUm, direcaoRoboUm);
             }
             #endregion
 
@@ -75,45 +43,15 @@
             {
                 char instrucaoAtual = instrucoes[i];
 
-                //E = vira pra esquerda
                 if (instrucaoAtual == 'E')
-                {
-                    if (direcaoRoboDois == 'N')
-                        direcaoRoboDois = 'O';
-                    else if (direcaoRoboDois == 'O')
-                        direcaoRoboDois = 'S';
-                    else if (direcaoRoboDois == 'S')
-                        direcaoRoboDois = 'L';
-                    else if (direcaoRoboDois == 'L')
-                        direcaoRoboDois = 'N';
-                }
-                //D= vira pra direita
+                    direcaoRoboDois = VirarEsquerdaRoboDois(direcaoRoboDois);
+
                 else if (instrucaoAtual == 'D')
-                {
-                    if (direcaoRoboDois == 'N')
-                        direcaoRoboDois = 'L';
-                    else if (direcaoRoboDois == 'L')
-                        direcaoRoboDois = 'S';
-                    else if (direcaoRoboDois == 'S')
-                        direcaoRoboDois = 'O';
-                    else if (direcaoRoboDois == 'O')
-                        direcaoRoboDois = 'N';
-                }
-                //M= movimenta para frente
+                    direcaoRoboDois = VirarDireitaRoboDois(direcaoRoboDois);
+
                 else if (instrucaoAtual == 'M')
-                {
-                    if (direcaoRoboDois == 'N')
-                        posicaoYRoboDois++;
-
-                    else if (direcaoRoboDois == 'S')
-                        posicaoYRoboDois--;
-
-                    else if (direcaoRoboDois == 'O')
-                        posicaoXRoboDois--;
-
-                    else if (direcaoRoboDois == 'L')
-                        posicaoXRoboDois++;
-                }
+                    MoverRoboDois(ref posicaoXRoboDois, ref posicaoYRoboDois, direcaoRoboDois);
+ 
             }
 
             #endregion
@@ -122,6 +60,85 @@
             Console.WriteLine($"{posicaoXRoboDois} {posicaoYRoboDois} {direcaoRoboDois}");
 
             Console.ReadLine();
+        }
+
+        private static char virarEsquerdaRoboUm(char direcaoRoboUm)
+        {
+            if (direcaoRoboUm == 'N')
+                direcaoRoboUm = 'O';
+            else if (direcaoRoboUm == 'O')
+                direcaoRoboUm = 'S';
+            else if (direcaoRoboUm == 'S')
+                direcaoRoboUm = 'L';
+            else if (direcaoRoboUm == 'L')
+                direcaoRoboUm = 'N';
+
+            return direcaoRoboUm;
+        }
+        private static char virarDireitaRoboUm(char direcaoRoboUm)
+        {
+            if (direcaoRoboUm == 'N')
+                direcaoRoboUm = 'L';
+            else if (direcaoRoboUm == 'L')
+                direcaoRoboUm = 'S';
+            else if (direcaoRoboUm == 'S')
+                direcaoRoboUm = 'O';
+            else if (direcaoRoboUm == 'O')
+                direcaoRoboUm = 'N';
+
+            return direcaoRoboUm;
+        }
+        private static void MoverRoboUm(ref int posicaoXRoboUm, ref int posicaoYRoboUm, char direcaoRoboUm)
+        {
+            if (direcaoRoboUm == 'N')
+                posicaoYRoboUm++;
+
+            else if (direcaoRoboUm == 'S')
+                posicaoYRoboUm--;
+
+            else if (direcaoRoboUm == 'O')
+                posicaoXRoboUm--;
+
+            else if (direcaoRoboUm == 'L')
+                posicaoXRoboUm++;
+        }
+        private static char VirarEsquerdaRoboDois(char direcaoRoboDois)
+        {
+            if (direcaoRoboDois == 'N')
+                direcaoRoboDois = 'O';
+            else if (direcaoRoboDois == 'O')
+                direcaoRoboDois = 'S';
+            else if (direcaoRoboDois == 'S')
+                direcaoRoboDois = 'L';
+            else if (direcaoRoboDois == 'L')
+                direcaoRoboDois = 'N';
+            return direcaoRoboDois;
+        }
+        private static char VirarDireitaRoboDois(char direcaoRoboDois)
+        {
+            if (direcaoRoboDois == 'N')
+                direcaoRoboDois = 'L';
+            else if (direcaoRoboDois == 'L')
+                direcaoRoboDois = 'S';
+            else if (direcaoRoboDois == 'S')
+                direcaoRoboDois = 'O';
+            else if (direcaoRoboDois == 'O')
+                direcaoRoboDois = 'N';
+            return direcaoRoboDois;
+        }
+        private static void MoverRoboDois(ref int posicaoXRoboDois, ref int posicaoYRoboDois, char direcaoRoboDois)
+        {
+            if (direcaoRoboDois == 'N')
+                posicaoYRoboDois++;
+
+            else if (direcaoRoboDois == 'S')
+                posicaoYRoboDois--;
+
+            else if (direcaoRoboDois == 'O')
+                posicaoXRoboDois--;
+
+            else if (direcaoRoboDois == 'L')
+                posicaoXRoboDois++;
         }
     }
 }
